@@ -26,6 +26,7 @@ public class Passenger_jet extends Aircraft {
         System.out.println("Enter distanse, km: ");
         passenger_jet.setDistance(input.nextLong());
         aircompany.addAircraftToFleet(passenger_jet);
+        input.close();
     }
 
 }
