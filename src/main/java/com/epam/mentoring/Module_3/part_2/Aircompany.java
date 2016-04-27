@@ -1,4 +1,4 @@
-package com.epam.mentoring.part_2;
+package com.epam.mentoring.Module_3.part_2;
 
 import java.util.ArrayList;
 import java.util.List;
