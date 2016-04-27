@@ -44,7 +44,4 @@ public class DataProcessor {
         }
     }
 
-    public void getInformation(Aircraft aircraft) {
-
-    }
 }
