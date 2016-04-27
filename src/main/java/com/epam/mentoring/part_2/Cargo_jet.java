@@ -17,7 +17,7 @@ public class Cargo_jet extends Aircraft {
     public void addCargoJet(Cargo_jet cargo_jet, Aircompany aircompany) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter model name: ");
-        String model = input.next();
+        String model = input.nextLine();
         cargo_jet.setModel(model);
         System.out.println("Enter carrying capacity, kg: ");
         cargo_jet.setCarrying_capacity(input.nextLong());

@@ -22,15 +22,7 @@ public class MainClass {
             passenger_jet.addPassengerJet(passenger_jet, aircompany);
         } else if (typeOfAircraft.equals("bussines")) {
             Bussiness_jet bussiness_jet = new Bussiness_jet();
-            System.out.println("Enter model name: ");
-            bussiness_jet.setModel(input.next());
-            System.out.println("Enter passengers capacity, person: ");
-            bussiness_jet.setPassenger_capacity(input.nextInt());
-            System.out.println("Enter weight, kg: ");
-            bussiness_jet.setWeight(input.nextInt());
-            System.out.println("Enter distanse, km: ");
-            bussiness_jet.setDistance(input.nextLong());
-            aircompany.addAircraftToFleet(bussiness_jet);
+            bussiness_jet.addBussinessJet(bussiness_jet, aircompany);
         } else {
             System.out.println("You entered wrong aircraft type!");
         }

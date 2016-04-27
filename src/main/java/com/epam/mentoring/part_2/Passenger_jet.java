@@ -18,7 +18,7 @@ public class Passenger_jet extends Aircraft {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Enter model name: ");
-        passenger_jet.setModel(input.next());
+        passenger_jet.setModel(input.nextLine());
         System.out.println("Enter passengers capacity, person: ");
         passenger_jet.setPassenger_capacity(input.nextInt());
         System.out.println("Enter weight, kg: ");
