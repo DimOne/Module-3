@@ -1,8 +1,16 @@
 package com.epam.mentoring.Module_3.part_2;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class DataProcessor {
+
+    private String type;
+    private String model;
+    private long carrying_capacity;
+    private int passenger_capacity;
+    private int weight;
+    private double distance;
 
     public void inputAircraftData() {
         String typeOfAircraft = "";
@@ -13,24 +21,38 @@ public class DataProcessor {
         System.out.println("Please enter type of aircraft(cargo, passenger, bussines): ");
         typeOfAircraft = input.next();
         if (typeOfAircraft.equals("cargo")) {
-            Cargo_jet cargo_jet = new Cargo_jet();
-            cargo_jet.addCargoJet(cargo_jet, aircompany);
-            inputDataForOneMoreAircraft();
+            addCargoJet(typeOfAircraft,aircompany);
+            inputDataForOneMoreAircraft(aircompany);
         } else if (typeOfAircraft.equals("passenger")) {
             Passenger_jet passenger_jet = new Passenger_jet();
             passenger_jet.addPassengerJet(passenger_jet, aircompany);
-            inputDataForOneMoreAircraft();
+            inputDataForOneMoreAircraft(aircompany);
         } else if (typeOfAircraft.equals("business")) {
             Business_jet business_jet = new Business_jet();
             business_jet.addBussinesJet(business_jet, aircompany);
-            inputDataForOneMoreAircraft();
+            inputDataForOneMoreAircraft(aircompany);
         } else {
             System.out.println("You entered wrong aircraft type!");
-            inputDataForOneMoreAircraft();
+            inputDataForOneMoreAircraft(aircompany);
         }
     }
 
-    public void inputDataForOneMoreAircraft() {
+    public void addCargoJet(String type, Aircompany aircompany) {
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.println("Enter model name: ");
+            String model = input.nextLine();
+            System.out.println("Enter carrying capacity, kg: ");
+            carrying_capacity = input.nextLong();
+            System.out.println("Enter weight, kg: ");
+            weight = input.nextInt();
+            System.out.println("Enter distanse, km: ");
+            distance = input.nextLong();
+            Cargo_jet cargo_jet = new Cargo_jet(type, model, carrying_capacity, weight, distance);
+            aircompany.addAircraftToFleet(cargo_jet);
+        }
+    }
+
+    private void inputDataForOneMoreAircraft(Aircompany aircompany) {
         String answer = " ";
 
         try (Scanner input = new Scanner(System.in)) {
@@ -39,8 +61,19 @@ public class DataProcessor {
             if (answer.equalsIgnoreCase("Y")) {
                 inputAircraftData();
             } else {
+                printFleet(aircompany);
                 System.exit(0);
             }
+        }
+    }
+
+    private void printFleet(Aircompany aircompany) {
+        List<Aircraft> fleet = aircompany.getFleet();
+        System.out.print("----------------------------------------------------------------------------------------");
+        System.out.print("|  type  |  name  |  passenger capacity  |  carrying capacity  |  weight  |  distance  |");
+        System.out.print("----------------------------------------------------------------------------------------");
+        for (Aircraft item : fleet) {
+            System.out.println("" + item.getType() + "" + item.getModel() + "" );
         }
     }
 

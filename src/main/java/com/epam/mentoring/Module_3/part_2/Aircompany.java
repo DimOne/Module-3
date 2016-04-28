@@ -5,9 +5,14 @@ import java.util.List;
 
 public class Aircompany {
 
+    List<Aircraft> fleet = new ArrayList<Aircraft>();
+
     public void addAircraftToFleet(Aircraft aircraft) {
-        List<Aircraft> fleet = new ArrayList<Aircraft>();
         fleet.add(aircraft);
+    }
+
+    public List<Aircraft> getFleet() {
+        return fleet;
     }
 
 }

@@ -8,7 +8,18 @@ public class Aircraft {
     private int weight;
     private double distance;
     private String model;
-    protected Map <String, String> resultList = new HashMap<>();
+    private String type;
+    final protected Map<String, String> parameters = new HashMap<String,String>();
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    protected Map<String, String> resultList = new HashMap<>();
 
     public void setWeight(int weight) {
         this.weight = weight;
@@ -34,8 +45,10 @@ public class Aircraft {
         this.model = model;
     }
 
-    public Map<String,String> getListParams() {
-        return resultList;
-    }
+//    public String toString() {
+//        String.format("", type, model, )
+//        return
+//    }
+
 }
 
