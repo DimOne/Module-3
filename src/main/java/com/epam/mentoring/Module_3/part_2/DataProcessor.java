@@ -20,9 +20,9 @@ public class DataProcessor {
             Passenger_jet passenger_jet = new Passenger_jet();
             passenger_jet.addPassengerJet(passenger_jet, aircompany);
             inputDataForOneMoreAircraft();
-        } else if (typeOfAircraft.equals("bussines")) {
-            Bussines_jet bussiness_jet = new Bussines_jet();
-            bussiness_jet.addBussinesJet(bussiness_jet, aircompany);
+        } else if (typeOfAircraft.equals("business")) {
+            Business_jet business_jet = new Business_jet();
+            business_jet.addBussinesJet(business_jet, aircompany);
             inputDataForOneMoreAircraft();
         } else {
             System.out.println("You entered wrong aircraft type!");
