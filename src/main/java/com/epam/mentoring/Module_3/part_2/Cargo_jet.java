@@ -1,17 +1,10 @@
 package com.epam.mentoring.Module_3.part_2;
 
-public class Cargo_jet extends Aircraft implements Row {
+import java.util.Scanner;
+
+public class Cargo_jet extends Aircraft {
 
     private long carrying_capacity;
-    private String information;
-
-    public Cargo_jet (String type, String model, long carrying_capacity, int weight, double distance) {
-        this.setType(type);
-        this.setModel(model);
-        this.setCarrying_capacity(carrying_capacity);
-        this.setWeight(weight);
-        this.setDistance(distance);
-    }
 
     public long getCarrying_capacity() {
         return carrying_capacity;
@@ -21,9 +14,18 @@ public class Cargo_jet extends Aircraft implements Row {
         this.carrying_capacity = carrying_capacity;
     }
 
-    @Override
-    public String getInfo() {
-        information = getType() + " " + getModel() + " " + getCarrying_capacity() + " " + getWeight() + " " + getDistance();
-        return information;
+    public void addCargoJet(Cargo_jet cargo_jet, Aircompany aircompany) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter model name: ");
+        String model = input.nextLine();
+        cargo_jet.setModel(model);
+        System.out.println("Enter carrying capacity, kg: ");
+        cargo_jet.setCarrying_capacity(input.nextLong());
+        System.out.println("Enter weight, kg: ");
+        cargo_jet.setWeight(input.nextInt());
+        System.out.println("Enter distanse, km: ");
+        cargo_jet.setDistance(input.nextLong());
+        aircompany.addAircraftToFleet(cargo_jet);
     }
+
 }

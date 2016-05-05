@@ -15,17 +15,15 @@ public class Passenger_jet extends Aircraft {
     }
 
     public void addPassengerJet(Passenger_jet passenger_jet, Aircompany aircompany) {
-        try (Scanner input = new Scanner(System.in)) {
-            System.out.println("Enter model name: ");
-            passenger_jet.setModel(input.nextLine());
-            System.out.println("Enter passengers capacity, person: ");
-            passenger_jet.setPassenger_capacity(input.nextInt());
-            System.out.println("Enter weight, kg: ");
-            passenger_jet.setWeight(input.nextInt());
-            System.out.println("Enter distanse, km: ");
-            passenger_jet.setDistance(input.nextLong());
-            aircompany.addAircraftToFleet(passenger_jet);
-            input.close();
-        }
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter model name: ");
+        passenger_jet.setModel(input.nextLine());
+        System.out.println("Enter passengers capacity, person: ");
+        passenger_jet.setPassenger_capacity(input.nextInt());
+        System.out.println("Enter weight, kg: ");
+        passenger_jet.setWeight(input.nextInt());
+        System.out.println("Enter distanse, km: ");
+        passenger_jet.setDistance(input.nextLong());
+        aircompany.addAircraftToFleet(passenger_jet);
     }
 }
