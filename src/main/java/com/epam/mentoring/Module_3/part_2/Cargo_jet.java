@@ -1,8 +1,9 @@
 package com.epam.mentoring.Module_3.part_2;
 
-public class Cargo_jet extends Aircraft {
+public class Cargo_jet extends Aircraft implements Row {
 
     private long carrying_capacity;
+    private String information;
 
     public Cargo_jet (String type, String model, long carrying_capacity, int weight, double distance) {
         this.setType(type);
@@ -10,7 +11,6 @@ public class Cargo_jet extends Aircraft {
         this.setCarrying_capacity(carrying_capacity);
         this.setWeight(weight);
         this.setDistance(distance);
-//        this.parameters.put("carrying capacity", Long.toString(carrying_capacity));
     }
 
     public long getCarrying_capacity() {
@@ -21,4 +21,9 @@ public class Cargo_jet extends Aircraft {
         this.carrying_capacity = carrying_capacity;
     }
 
+    @Override
+    public String getInfo() {
+        information = getType() + " " + getModel() + " " + getCarrying_capacity() + " " + getWeight() + " " + getDistance();
+        return information;
+    }
 }
