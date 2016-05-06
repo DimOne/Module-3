@@ -1,6 +1,5 @@
 package com.epam.mentoring.Module_3.part_2;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class DataProcessor {
@@ -21,7 +20,7 @@ public class DataProcessor {
         System.out.println("Please enter type of aircraft(cargo, passenger, bussines): ");
         typeOfAircraft = input.next();
         if (typeOfAircraft.equals("cargo")) {
-            addCargoJet(typeOfAircraft,aircompany);
+            addCargoJet(typeOfAircraft, aircompany);
             inputDataForOneMoreAircraft(aircompany);
         } else if (typeOfAircraft.equals("passenger")) {
             Passenger_jet passenger_jet = new Passenger_jet();
@@ -61,19 +60,8 @@ public class DataProcessor {
             if (answer.equalsIgnoreCase("Y")) {
                 inputAircraftData();
             } else {
-                printFleet(aircompany);
                 System.exit(0);
             }
-        }
-    }
-
-    private void printFleet(Aircompany aircompany) {
-        List<Aircraft> fleet = aircompany.getFleet();
-        System.out.print("----------------------------------------------------------------------------------------");
-        System.out.print("|  type  |  name  |  passenger capacity  |  carrying capacity  |  weight  |  distance  |");
-        System.out.print("----------------------------------------------------------------------------------------");
-        for (Aircraft item : fleet) {
-            System.out.println("" + item.getType() + "" + item.getModel() + "" );
         }
     }
 
