@@ -1,5 +1,7 @@
 package com.epam.mentoring.Module_3.part_2;
 
+import com.epam.mentoring.Module_3.part_2.Printers.Printer;
+
 import java.util.Scanner;
 
 public class Passenger_jet extends Aircraft {
@@ -27,5 +29,11 @@ public class Passenger_jet extends Aircraft {
             aircompany.addAircraftToFleet(passenger_jet);
             input.close();
         }
+    }
+
+    @Override
+    public void print(Printer printer) {
+        super.print(printer);
+        printer.printPassengerCapacity(this.passenger_capacity);
     }
 }

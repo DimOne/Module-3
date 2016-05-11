@@ -1,6 +1,8 @@
 package com.epam.mentoring.Module_3.part_2;
 
-public class Cargo_jet extends Aircraft implements Row {
+import com.epam.mentoring.Module_3.part_2.Printers.Printer;
+
+public class Cargo_jet extends Aircraft {
 
     private long carrying_capacity;
     private String information;
@@ -22,8 +24,8 @@ public class Cargo_jet extends Aircraft implements Row {
     }
 
     @Override
-    public String getInfo() {
-        information = getType() + " " + getModel() + " " + getCarrying_capacity() + " " + getWeight() + " " + getDistance();
-        return information;
+    public void print(Printer printer) {
+        super.print(printer);
+        printer.printCarryingCapacity(this.carrying_capacity);
     }
 }

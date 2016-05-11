@@ -44,7 +44,7 @@ public class DataProcessor {
             carrying_capacity = input.nextLong();
             System.out.println("Enter weight, kg: ");
             weight = input.nextInt();
-            System.out.println("Enter distanse, km: ");
+            System.out.println("Enter distance, km: ");
             distance = input.nextLong();
             Cargo_jet cargo_jet = new Cargo_jet(type, model, carrying_capacity, weight, distance);
             aircompany.addAircraftToFleet(cargo_jet);
