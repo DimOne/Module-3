@@ -1,6 +1,6 @@
 package com.epam.mentoring.Module_3.part_2.Printers;
 
-public class CargoJetPrinter implements Printer {
+public class ConsolePrinter implements Printer {
 
     @Override
     public void print() {
@@ -19,6 +19,11 @@ public class CargoJetPrinter implements Printer {
 
     public void printCarryingCapacity(long carrying_capacity) {
         System.out.print(carrying_capacity);
+    }
+
+    @Override
+    public void printPassengerCapacity(int passenger_capacity) {
+        System.out.print(passenger_capacity);
     }
 
     @Override

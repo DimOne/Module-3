@@ -1,5 +1,7 @@
 package com.epam.mentoring.Module_3.part_2;
 
+import com.epam.mentoring.Module_3.part_2.Printers.Printer;
+
 import java.util.Scanner;
 
 public class Passenger_jet extends Aircraft {
@@ -25,5 +27,11 @@ public class Passenger_jet extends Aircraft {
         System.out.println("Enter distanse, km: ");
         passenger_jet.setDistance(input.nextLong());
         aircompany.addAircraftToFleet(passenger_jet);
+    }
+
+    @Override
+    public void print(Printer printer) {
+        super.print(printer);
+        printer.printPassengerCapacity(this.passenger_capacity);
     }
 }

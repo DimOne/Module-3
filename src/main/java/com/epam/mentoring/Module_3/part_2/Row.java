@@ -1,6 +1,8 @@
 package com.epam.mentoring.Module_3.part_2;
 
+import com.epam.mentoring.Module_3.part_2.Printers.Printer;
+
 public interface Row {
 
-    public String getInfo();
+    void print(Printer printer);
 }

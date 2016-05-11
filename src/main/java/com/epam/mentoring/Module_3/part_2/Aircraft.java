@@ -1,9 +1,11 @@
 package com.epam.mentoring.Module_3.part_2;
 
+import com.epam.mentoring.Module_3.part_2.Printers.Printer;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class Aircraft {
+public class Aircraft implements Row{
 
     private int weight;
     private double distance;
@@ -45,10 +47,12 @@ public class Aircraft {
         this.model = model;
     }
 
-//    public String toString() {
-//        String.format("", type, model, )
-//        return
-//    }
+    public void print(Printer printer) {
+        printer.printWeight(this.weight);
+        printer.printDistance(this.distance);
+        printer.printModel(this.model);
+        printer.printType(this.type);
+    }
 
 }
 
