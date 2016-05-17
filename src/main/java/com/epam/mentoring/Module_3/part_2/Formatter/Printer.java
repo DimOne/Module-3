@@ -1,4 +1,4 @@
-package com.epam.mentoring.Module_3.part_2.Printers;
+package com.epam.mentoring.Module_3.part_2.Formatter;
 
 public interface Printer {
 

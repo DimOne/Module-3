@@ -1,6 +1,6 @@
 package com.epam.mentoring.Module_3.part_2;
 
-import com.epam.mentoring.Module_3.part_2.Printers.Printer;
+import com.epam.mentoring.Module_3.part_2.Formatter.Printer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,11 +47,11 @@ public class Aircraft implements Row{
         this.model = model;
     }
 
-    public void print(Printer printer) {
-        printer.printWeight(this.weight);
-        printer.printDistance(this.distance);
-        printer.printModel(this.model);
-        printer.printType(this.type);
+    public void print(Printer formatter) {
+        formatter.printWeight(this.weight);
+        formatter.printDistance(this.distance);
+        formatter.printModel(this.model);
+        formatter.printType(this.type);
     }
 
 }
