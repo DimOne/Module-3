@@ -25,6 +25,7 @@ public class Cargo_jet extends Aircraft {
 
     @Override
     public void print(Printer printer) {
+        System.out.println("\n | weight | distance | model | type | carrying_capacity |");
         super.print(printer);
         printer.printCarryingCapacity(this.carrying_capacity);
     }
