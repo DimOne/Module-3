@@ -59,7 +59,6 @@ public class DataProcessor {
         distance = input.nextLong();
         Passenger_jet passenger_jet = new Passenger_jet(type, model, passenger_capacity, weight, distance);
         aircompany.addAircraftToFleet(passenger_jet);
-        input.close();
     }
 
     public void addBussinesJet(String type, Aircompany aircompany) {

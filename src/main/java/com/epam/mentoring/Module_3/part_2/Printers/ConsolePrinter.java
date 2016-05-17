@@ -14,7 +14,7 @@ public class ConsolePrinter implements Printer {
 
     @Override
     public void printModel(String model) {
-        System.out.print(model + " ");
+        System.out.print("model = "model + " ");
     }
 
     public void printCarryingCapacity(long carrying_capacity) {
