@@ -3,6 +3,7 @@ package com.epam.mentoring.Module_3.part_2;
 import com.epam.mentoring.Module_3.part_2.Formatter.ConsolePrinter;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class DataProcessor {
 
@@ -14,12 +15,13 @@ public class DataProcessor {
     private double distance;
 
     private Scanner input = new Scanner(System.in);
+    Pattern pattern = Pattern.compile("\\S+");
     private Aircompany aircompany = new Aircompany();
 
 
     public void inputAircraftData() {
         System.out.println("Please enter type of aircraft(cargo, passenger, bussines): ");
-        String typeOfAircraft = input.next();
+        String typeOfAircraft = input.next("\\w+");
         if (typeOfAircraft.equals("cargo")) {
             addCargoJet(typeOfAircraft, aircompany);
             inputDataForOneMoreAircraft(aircompany);
@@ -37,7 +39,7 @@ public class DataProcessor {
 
     public void addCargoJet(String type, Aircompany aircompany) {
         System.out.println("Enter model name: ");
-        model = input.nextLine();
+        model = input.next(pattern);
         System.out.println("Enter carrying capacity, kg: ");
         carrying_capacity = input.nextLong();
         System.out.println("Enter weight, kg: ");
@@ -50,7 +52,7 @@ public class DataProcessor {
 
     public void addPassengerJet(String type, Aircompany aircompany) {
         System.out.println("Enter model name: ");
-        model = input.nextLine();
+        model = input.next();
         System.out.println("Enter passengers capacity, person: ");
         passenger_capacity = input.nextInt();
         System.out.println("Enter weight, kg: ");
@@ -76,12 +78,11 @@ public class DataProcessor {
 
     private void inputDataForOneMoreAircraft(Aircompany aircompany) {
         System.out.println("Do you want to enter one more aircraft?(Y/N)");
-        String answer = input.next();
+        String answer = input.next("\\w+");
         if (answer.equalsIgnoreCase("Y")) {
             inputAircraftData();
         } else {
             printOutFleet(aircompany);
-            input.close();
             System.exit(0);
         }
     }

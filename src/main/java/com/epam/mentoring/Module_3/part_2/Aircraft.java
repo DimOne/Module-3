@@ -48,10 +48,10 @@ public class Aircraft implements Row{
     }
 
     public void print(Printer formatter) {
-        formatter.printWeight(this.weight);
-        formatter.printDistance(this.distance);
         formatter.printModel(this.model);
         formatter.printType(this.type);
+        formatter.printWeight(this.weight);
+        formatter.printDistance(this.distance);
     }
 
 }

@@ -26,7 +26,6 @@ public class Passenger_jet extends Aircraft {
 
     @Override
     public void print(Printer printer) {
-        System.out.println("\n | weight | distance | model | type | passenger_capacity |");
         super.print(printer);
         printer.printPassengerCapacity(this.passenger_capacity);
     }
