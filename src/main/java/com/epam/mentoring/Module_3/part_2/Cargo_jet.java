@@ -4,9 +4,9 @@ import com.epam.mentoring.Module_3.part_2.Formatter.Printer;
 
 public class Cargo_jet extends Aircraft {
 
-    private long carrying_capacity;
+    private int carrying_capacity;
 
-    public Cargo_jet(String type, String model, long carrying_capacity, int weight, double distance) {
+    public Cargo_jet(String type, String model, int carrying_capacity, int weight, int distance) {
         this.setType(type);
         this.setModel(model);
         this.setCarrying_capacity(carrying_capacity);
@@ -18,7 +18,7 @@ public class Cargo_jet extends Aircraft {
         return carrying_capacity;
     }
 
-    public void setCarrying_capacity(long carrying_capacity) {
+    public void setCarrying_capacity(int carrying_capacity) {
         this.carrying_capacity = carrying_capacity;
     }
 

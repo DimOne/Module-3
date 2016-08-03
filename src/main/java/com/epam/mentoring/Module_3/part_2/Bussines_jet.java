@@ -7,7 +7,7 @@ public class Bussines_jet extends Aircraft {
 
     private int passenger_capacity;
 
-    public Bussines_jet(String type, String model, int passenger_capacity, int weight, double distance) {
+    public Bussines_jet(String type, String model, int passenger_capacity, int weight, int distance) {
         this.setType(type);
         this.setModel(model);
         this.setPassenger_capacity(passenger_capacity);

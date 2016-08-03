@@ -5,7 +5,7 @@ import com.epam.mentoring.Module_3.part_2.Formatter.Printer;
 public abstract class Aircraft {
 
     private int weight;
-    private double distance;
+    private int distance;
     private String model;
     private String type;
 
@@ -25,11 +25,11 @@ public abstract class Aircraft {
         return weight;
     }
 
-    public double getDistance() {
+    public int getDistance() {
         return distance;
     }
 
-    public void setDistance(double distance) {
+    public void setDistance(int distance) {
         this.distance = distance;
     }
 

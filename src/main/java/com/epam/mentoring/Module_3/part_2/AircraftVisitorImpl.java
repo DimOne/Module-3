@@ -23,6 +23,7 @@ public class AircraftVisitorImpl implements AircraftVisitor {
         passenger_capacity += passenger_jet.getPassenger_capacity();
     }
 
+    @Override
     public void visit(Bussines_jet bussines_jet) {
         passenger_capacity += bussines_jet.getPassenger_capacity();
     }

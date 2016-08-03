@@ -6,6 +6,6 @@ public class AircraftComparator implements Comparator<Aircraft> {
 
     @Override
     public int compare(Aircraft o1, Aircraft o2) {
-        return ;
+        return o1.getDistance() - o2.getDistance();
     }
 }

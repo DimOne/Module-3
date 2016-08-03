@@ -2,15 +2,16 @@ package com.epam.mentoring.Module_3.part_2;
 
 import com.epam.mentoring.Module_3.part_2.Formatter.ConsolePrinter;
 
+import java.util.Collections;
 import java.util.Scanner;
 
 public class DataProcessor {
 
     private String model;
-    private long carrying_capacity;
+    private int carrying_capacity;
     private int passenger_capacity;
     private int weight;
-    private double distance;
+    private int distance;
 
     private Scanner input = new Scanner(System.in).useDelimiter("\n");
     private Aircompany aircompany = new Aircompany();
@@ -38,11 +39,11 @@ public class DataProcessor {
         System.out.println("Enter model name: ");
         model = input.next();
         System.out.println("Enter carrying capacity, kg: ");
-        carrying_capacity = input.nextLong();
+        carrying_capacity = input.nextInt();
         System.out.println("Enter weight, kg: ");
         weight = input.nextInt();
         System.out.println("Enter distance, km: ");
-        distance = input.nextLong();
+        distance = input.nextInt();
         Cargo_jet cargo_jet = new Cargo_jet(typeOfAircraft, model, carrying_capacity, weight, distance);
         aircompany.addAircraftToFleet(cargo_jet);
     }
@@ -55,7 +56,7 @@ public class DataProcessor {
         System.out.println("Enter weight, kg: ");
         weight = input.nextInt();
         System.out.println("Enter distanse, km: ");
-        distance = input.nextLong();
+        distance = input.nextInt();
         Passenger_jet passenger_jet = new Passenger_jet(typeOfAircraft, model, passenger_capacity, weight, distance);
         aircompany.addAircraftToFleet(passenger_jet);
     }
@@ -68,7 +69,7 @@ public class DataProcessor {
         System.out.println("Enter weight, kg: ");
         weight = input.nextInt();
         System.out.println("Enter distanse, km: ");
-        distance = input.nextLong();
+        distance = input.nextInt();
         Bussines_jet bussines_jet = new Bussines_jet(typeOfAircraft, model, passenger_capacity, weight, distance);
         aircompany.addAircraftToFleet(bussines_jet);
     }
@@ -98,7 +99,7 @@ public class DataProcessor {
         for (Aircraft aircraft : aircompany.getFleet()) {
             aircraft.accept(aircraftVisitor);
         }
-        System.out.print("--------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------");
         System.out.println("Overall carrying capacity, kg: " + aircraftVisitor.getCarrying_capacity());
         System.out.println("Overall passenger capacity, person: " + aircraftVisitor.getPassenger_capacity());
         System.out.println("------------------------------------------------------------------------------");
@@ -106,7 +107,9 @@ public class DataProcessor {
     }
 
     private void sortAircraftsByDistance(Aircompany aircompany) {
-//        Collections.sort(aircompany.getFleet());
+        Collections.sort(aircompany.getFleet(), new AircraftComparator());
+        System.out.println("Sorted by distance, km: ");
+        System.out.println("-------------------------------------------------------------------------------");
         printOutFleet(aircompany);
     }
 }
