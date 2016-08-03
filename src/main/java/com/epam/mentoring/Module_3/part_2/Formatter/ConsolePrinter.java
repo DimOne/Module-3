@@ -14,16 +14,17 @@ public class ConsolePrinter implements Printer {
 
     @Override
     public void printModel(String model) {
-        System.out.print("\nmodel = "+ model + ", ");
+        System.out.print("model = "+ model + ", ");
     }
 
+    @Override
     public void printCarryingCapacity(long carrying_capacity) {
-        System.out.print("carrying_capacity = " + carrying_capacity + ", ");
+        System.out.print("carrying_capacity = " + carrying_capacity + ". \n");
     }
 
     @Override
     public void printPassengerCapacity(int passenger_capacity) {
-        System.out.print("passenger_capacity = " + passenger_capacity + ", ");
+        System.out.print("passenger_capacity = " + passenger_capacity + ". \n");
     }
 
     @Override

@@ -28,4 +28,9 @@ public class Bussines_jet extends Aircraft {
         super.print(printer);
         printer.printPassengerCapacity(this.passenger_capacity);
     }
+
+    @Override
+    public void accept(AircraftVisitorImpl aircraftVisitor) {
+        aircraftVisitor.visit(this);
+    }
 }

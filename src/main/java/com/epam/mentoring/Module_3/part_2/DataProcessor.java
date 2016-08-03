@@ -62,7 +62,7 @@ public class DataProcessor {
 
     private void addBussinesJet(String typeOfAircraft, Aircompany aircompany) {
         System.out.println("Enter model name: ");
-        model = input.nextLine();
+        model = input.next();
         System.out.println("Enter passengers capacity, person: ");
         passenger_capacity = input.nextInt();
         System.out.println("Enter weight, kg: ");
@@ -80,6 +80,7 @@ public class DataProcessor {
             inputAircraftData();
         } else if (answer.equalsIgnoreCase("N")) {
             printOutFleet(aircompany);
+            overallCarrayingAndPassengerCapacity(aircompany);
             input.close();
             System.exit(0);
         }
@@ -93,16 +94,19 @@ public class DataProcessor {
     }
 
     private void overallCarrayingAndPassengerCapacity(Aircompany aircompany) {
-        long overallCarryingCapacity;
-        int overallPassengercapacity;
+        AircraftVisitorImpl aircraftVisitor = new AircraftVisitorImpl();
         for (Aircraft aircraft : aircompany.getFleet()) {
-            if (aircraft.getType() == "cargo") {
-                overallCarryingCapacity =+ aircraft.getCarrying_capacity();
-            } else if (aircraft.getType() == "passenger") {
-                overallPassengercapacity =+ aircraft.getPassenger_capacity();
-            }
+            aircraft.accept(aircraftVisitor);
         }
-
+        System.out.print("--------------------------------------------------------------------------------");
+        System.out.println("Overall carrying capacity, kg: " + aircraftVisitor.getCarrying_capacity());
+        System.out.println("Overall passenger capacity, person: " + aircraftVisitor.getPassenger_capacity());
+        System.out.println("------------------------------------------------------------------------------");
+        sortAircraftsByDistance(aircompany);
     }
 
+    private void sortAircraftsByDistance(Aircompany aircompany) {
+//        Collections.sort(aircompany.getFleet());
+        printOutFleet(aircompany);
+    }
 }

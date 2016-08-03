@@ -7,7 +7,7 @@ public class Passenger_jet extends Aircraft {
 
     private int passenger_capacity;
 
-    public Passenger_jet (String type, String model, int passenger_capacity, int weight, double distance) {
+    public Passenger_jet(String type, String model, int passenger_capacity, int weight, double distance) {
         this.setType(type);
         this.setModel(model);
         this.setPassenger_capacity(passenger_capacity);
@@ -23,10 +23,14 @@ public class Passenger_jet extends Aircraft {
         this.passenger_capacity = passenger_capacity;
     }
 
-
     @Override
     public void print(Printer printer) {
         super.print(printer);
         printer.printPassengerCapacity(this.passenger_capacity);
+    }
+
+    @Override
+    public void accept(AircraftVisitorImpl aircraftVisitor) {
+        aircraftVisitor.visit(this);
     }
 }

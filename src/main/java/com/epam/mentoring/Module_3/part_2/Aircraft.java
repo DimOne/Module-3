@@ -2,16 +2,12 @@ package com.epam.mentoring.Module_3.part_2;
 
 import com.epam.mentoring.Module_3.part_2.Formatter.Printer;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class Aircraft implements Row{
+public abstract class Aircraft {
 
     private int weight;
     private double distance;
     private String model;
     private String type;
-    final protected Map<String, String> parameters = new HashMap<String,String>();
 
     public String getType() {
         return type;
@@ -20,8 +16,6 @@ public class Aircraft implements Row{
     public void setType(String type) {
         this.type = type;
     }
-
-    protected Map<String, String> resultList = new HashMap<>();
 
     public void setWeight(int weight) {
         this.weight = weight;
@@ -54,5 +48,6 @@ public class Aircraft implements Row{
         formatter.printDistance(this.distance);
     }
 
+    public abstract void accept(AircraftVisitorImpl aircraftVisitor);
 }
 
