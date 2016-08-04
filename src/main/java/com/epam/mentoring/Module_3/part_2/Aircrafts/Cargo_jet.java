@@ -1,6 +1,7 @@
-package com.epam.mentoring.Module_3.part_2;
+package com.epam.mentoring.Module_3.part_2.Aircrafts;
 
 import com.epam.mentoring.Module_3.part_2.Formatter.Printer;
+import com.epam.mentoring.Module_3.part_2.Visitiors.AircraftVisitorImpl;
 
 public class Cargo_jet extends Aircraft {
 
@@ -18,7 +19,7 @@ public class Cargo_jet extends Aircraft {
         return carrying_capacity;
     }
 
-    public void setCarrying_capacity(int carrying_capacity) {
+    private void setCarrying_capacity(int carrying_capacity) {
         this.carrying_capacity = carrying_capacity;
     }
 

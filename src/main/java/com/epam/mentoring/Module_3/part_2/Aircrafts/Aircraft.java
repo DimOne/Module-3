@@ -1,6 +1,7 @@
-package com.epam.mentoring.Module_3.part_2;
+package com.epam.mentoring.Module_3.part_2.Aircrafts;
 
 import com.epam.mentoring.Module_3.part_2.Formatter.Printer;
+import com.epam.mentoring.Module_3.part_2.Visitiors.AircraftVisitorImpl;
 
 public abstract class Aircraft {
 

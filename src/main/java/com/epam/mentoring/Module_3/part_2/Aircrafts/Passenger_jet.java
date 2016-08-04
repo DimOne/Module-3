@@ -1,13 +1,14 @@
-package com.epam.mentoring.Module_3.part_2;
+package com.epam.mentoring.Module_3.part_2.Aircrafts;
 
 
 import com.epam.mentoring.Module_3.part_2.Formatter.Printer;
+import com.epam.mentoring.Module_3.part_2.Visitiors.AircraftVisitorImpl;
 
-public class Bussines_jet extends Aircraft {
+public class Passenger_jet extends Aircraft {
 
     private int passenger_capacity;
 
-    public Bussines_jet(String type, String model, int passenger_capacity, int weight, int distance) {
+    public Passenger_jet(String type, String model, int passenger_capacity, int weight, int distance) {
         this.setType(type);
         this.setModel(model);
         this.setPassenger_capacity(passenger_capacity);
@@ -19,7 +20,7 @@ public class Bussines_jet extends Aircraft {
         return passenger_capacity;
     }
 
-    public void setPassenger_capacity(int passenger_capacity) {
+    private void setPassenger_capacity(int passenger_capacity) {
         this.passenger_capacity = passenger_capacity;
     }
 

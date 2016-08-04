@@ -1,4 +1,8 @@
-package com.epam.mentoring.Module_3.part_2;
+package com.epam.mentoring.Module_3.part_2.Visitiors;
+
+import com.epam.mentoring.Module_3.part_2.Aircrafts.Bussines_jet;
+import com.epam.mentoring.Module_3.part_2.Aircrafts.Cargo_jet;
+import com.epam.mentoring.Module_3.part_2.Aircrafts.Passenger_jet;
 
 public class AircraftVisitorImpl implements AircraftVisitor {
 

@@ -1,6 +1,11 @@
 package com.epam.mentoring.Module_3.part_2;
 
+import com.epam.mentoring.Module_3.part_2.Aircrafts.Aircraft;
+import com.epam.mentoring.Module_3.part_2.Aircrafts.Bussines_jet;
+import com.epam.mentoring.Module_3.part_2.Aircrafts.Cargo_jet;
+import com.epam.mentoring.Module_3.part_2.Aircrafts.Passenger_jet;
 import com.epam.mentoring.Module_3.part_2.Formatter.ConsolePrinter;
+import com.epam.mentoring.Module_3.part_2.Visitiors.AircraftVisitorImpl;
 
 import java.util.Collections;
 import java.util.Scanner;
@@ -20,18 +25,23 @@ public class DataProcessor {
     public void inputAircraftData() {
         System.out.println("Please enter type of aircraft(cargo, passenger, bussines): ");
         String typeOfAircraft = input.next();
-        if (typeOfAircraft.equals("cargo")) {
-            addCargoJet(typeOfAircraft, aircompany);
-            inputDataForOneMoreAircraft(aircompany);
-        } else if (typeOfAircraft.equals("passenger")) {
-            addPassengerJet(typeOfAircraft, aircompany);
-            inputDataForOneMoreAircraft(aircompany);
-        } else if (typeOfAircraft.equals("bussines")) {
-            addBussinesJet(typeOfAircraft, aircompany);
-            inputDataForOneMoreAircraft(aircompany);
-        } else {
-            System.out.println("You entered wrong aircraft type!");
-            inputDataForOneMoreAircraft(aircompany);
+        switch (typeOfAircraft) {
+            case "cargo":
+                addCargoJet(typeOfAircraft, aircompany);
+                inputDataForOneMoreAircraft(aircompany);
+                break;
+            case "passenger":
+                addPassengerJet(typeOfAircraft, aircompany);
+                inputDataForOneMoreAircraft(aircompany);
+                break;
+            case "bussines":
+                addBussinesJet(typeOfAircraft, aircompany);
+                inputDataForOneMoreAircraft(aircompany);
+                break;
+            default:
+                System.out.println("You entered wrong aircraft type!");
+                inputDataForOneMoreAircraft(aircompany);
+                break;
         }
     }
 
@@ -80,6 +90,7 @@ public class DataProcessor {
         if (answer.equalsIgnoreCase("Y")) {
             inputAircraftData();
         } else if (answer.equalsIgnoreCase("N")) {
+            aircompany.gatherAllPlanes();
             printOutFleet(aircompany);
             overallCarrayingAndPassengerCapacity(aircompany);
             input.close();
@@ -89,27 +100,102 @@ public class DataProcessor {
 
     private void printOutFleet(Aircompany aircompany) {
         ConsolePrinter consolePrinter = new ConsolePrinter();
-        for (Aircraft aircraft : aircompany.getFleet()) {
+        for (Aircraft aircraft : aircompany.getAllAircrafts()) {
             aircraft.print(consolePrinter);
         }
     }
 
     private void overallCarrayingAndPassengerCapacity(Aircompany aircompany) {
         AircraftVisitorImpl aircraftVisitor = new AircraftVisitorImpl();
-        for (Aircraft aircraft : aircompany.getFleet()) {
+        for (Aircraft aircraft : aircompany.getAllAircrafts()) {
             aircraft.accept(aircraftVisitor);
         }
-        System.out.println("------------------------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------------------------");
         System.out.println("Overall carrying capacity, kg: " + aircraftVisitor.getCarrying_capacity());
         System.out.println("Overall passenger capacity, person: " + aircraftVisitor.getPassenger_capacity());
-        System.out.println("------------------------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------------------------");
         sortAircraftsByDistance(aircompany);
     }
 
     private void sortAircraftsByDistance(Aircompany aircompany) {
-        Collections.sort(aircompany.getFleet(), new AircraftComparator());
+        Collections.sort(aircompany.getAllAircrafts(), new AircraftComparator());
         System.out.println("Sorted by distance, km: ");
         System.out.println("-------------------------------------------------------------------------------");
         printOutFleet(aircompany);
+        System.out.println("-------------------------------------------------------------------------------");
+        enteringSearchAttributes(aircompany);
+    }
+
+    private void enteringSearchAttributes(Aircompany aircompany) {
+        System.out.println("What type of aircraft you would like search to? (cargo, passenger, bussines)");
+        String typeOfAircraft = input.next();
+        switch (typeOfAircraft) {
+            case "cargo":
+                System.out.println("Enter carrying capacity, kg: ");
+                carrying_capacity = input.nextInt();
+                System.out.println("Enter distance, km: ");
+                distance = input.nextInt();
+                searchCargoAircraft(aircompany, carrying_capacity, distance);
+                break;
+            case "passenger":
+                System.out.print("Enter passenger capacity, persons: ");
+                passenger_capacity = input.nextInt();
+                System.out.println("Enter distance, km: ");
+                distance = input.nextInt();
+                searchPassengerAircraft(aircompany, passenger_capacity, distance);
+                break;
+            case "bussines":
+                System.out.print("Enter passenger capacity, persons: ");
+                passenger_capacity = input.nextInt();
+                System.out.println("Enter distance, km: ");
+                distance = input.nextInt();
+                searchBussinesAircraft(aircompany, passenger_capacity, distance);
+                break;
+            default:
+                System.out.println("You entered wrong aircraft type!");
+                break;
+        }
+    }
+
+    private void searchCargoAircraft(Aircompany aircompany, int carrying_capacity, int distance) {
+        for (Cargo_jet cargo_jet : aircompany.getCargo_jets()) {
+            if (cargo_jet.getCarrying_capacity() == carrying_capacity && cargo_jet.getDistance() == distance) {
+                System.out.println("Search results for carrying capacity = " + carrying_capacity + "kg and distance = " + distance + "km : ");
+                System.out.println("-------------------------------------------------------------------------------");
+                cargo_jet.print(new ConsolePrinter());
+                System.out.println("-------------------------------------------------------------------------------");
+            } else {
+                System.out.println("Unfortunatelly, aircompany doesn't have jets according to your criterias.");
+                System.exit(1);
+            }
+        }
+    }
+
+    private void searchPassengerAircraft(Aircompany aircompany, int passenger_capacity, int distance) {
+        for (Passenger_jet passenger_jet : aircompany.getPassenger_jets()) {
+            if (passenger_jet.getPassenger_capacity() == passenger_capacity && passenger_jet.getDistance() == distance) {
+                System.out.println("Search results for passenger capacity = " + passenger_capacity + "persons and distance = " + distance + "km : ");
+                System.out.println("-------------------------------------------------------------------------------");
+                passenger_jet.print(new ConsolePrinter());
+                System.out.println("-------------------------------------------------------------------------------");
+            } else {
+                System.out.println("Unfortunatelly, aircompany doesn't have jets according to your criterias.");
+                System.exit(1);
+            }
+        }
+    }
+
+    private void searchBussinesAircraft(Aircompany aircompany, int passenger_capacity, int distance) {
+        for (Bussines_jet bussines_jet : aircompany.getBussines_jets()) {
+            if (bussines_jet.getPassenger_capacity() == passenger_capacity && bussines_jet.getDistance() == distance) {
+                System.out.println("Search results for passenger capacity = " + passenger_capacity + "persons and distance = " + distance + "km : ");
+                System.out.println("-------------------------------------------------------------------------------");
+                bussines_jet.print(new ConsolePrinter());
+                System.out.println("-------------------------------------------------------------------------------");
+            } else {
+                System.out.println("Unfortunatelly, aircompany doesn't have jets according to your criterias.");
+                System.exit(1);
+            }
+        }
     }
 }

@@ -1,5 +1,7 @@
 package com.epam.mentoring.Module_3.part_2;
 
+import com.epam.mentoring.Module_3.part_2.Aircrafts.Aircraft;
+
 import java.util.Comparator;
 
 public class AircraftComparator implements Comparator<Aircraft> {
