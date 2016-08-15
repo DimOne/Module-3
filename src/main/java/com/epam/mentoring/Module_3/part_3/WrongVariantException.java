@@ -1,8 +1,8 @@
 package com.epam.mentoring.Module_3.part_3;
 
-public class WrongVariantExeption extends Exception {
+public class WrongVariantException extends Exception {
 
-    public WrongVariantExeption() {
+    public WrongVariantException() {
         super("You entered invalid value!");
     }
 

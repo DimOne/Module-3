@@ -6,7 +6,7 @@ import com.epam.mentoring.Module_3.part_2.Aircrafts.Cargo_jet;
 import com.epam.mentoring.Module_3.part_2.Aircrafts.Passenger_jet;
 import com.epam.mentoring.Module_3.part_2.Formatter.ConsolePrinter;
 import com.epam.mentoring.Module_3.part_2.Visitiors.AircraftVisitorImpl;
-import com.epam.mentoring.Module_3.part_3.WrongVariantExeption;
+import com.epam.mentoring.Module_3.part_3.WrongVariantException;
 
 import java.util.Collections;
 import java.util.Scanner;
@@ -30,8 +30,8 @@ public class DataProcessor {
             case "cargo":
                 try {
                     addCargoJet(typeOfAircraft, aircompany);
-                } catch (WrongVariantExeption wrongVariantExeption) {
-                    System.out.println("You entered invalid value! Would you like reenter it?(Y/N)");
+                } catch (WrongVariantException wrongVariantException) {
+                    System.out.println("You entered invalid value! Would you like reenter aircraft?(Y/N)");
                     String answer = input.next();
                     if (answer.equalsIgnoreCase("Y")) {
                         inputAircraftData();
@@ -57,12 +57,12 @@ public class DataProcessor {
         }
     }
 
-    private void addCargoJet(String typeOfAircraft, Aircompany aircompany) throws WrongVariantExeption {
+    private void addCargoJet(String typeOfAircraft, Aircompany aircompany) throws WrongVariantException {
         System.out.println("Enter model name: ");
         model = input.next();
         System.out.println("Enter carrying capacity, kg: ");
         carrying_capacity = input.nextInt();
-        if (carrying_capacity <= 0) throw new WrongVariantExeption();
+        if (carrying_capacity <= 0) throw new WrongVariantException();
         System.out.println("Enter weight, kg: ");
         weight = input.nextInt();
         System.out.println("Enter distance, km: ");
