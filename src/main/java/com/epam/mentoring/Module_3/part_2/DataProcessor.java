@@ -1,11 +1,11 @@
 package com.epam.mentoring.Module_3.part_2;
 
-import com.epam.mentoring.Module_3.part_2.Aircrafts.Aircraft;
-import com.epam.mentoring.Module_3.part_2.Aircrafts.Bussines_jet;
-import com.epam.mentoring.Module_3.part_2.Aircrafts.Cargo_jet;
-import com.epam.mentoring.Module_3.part_2.Aircrafts.Passenger_jet;
-import com.epam.mentoring.Module_3.part_2.Formatter.ConsolePrinter;
-import com.epam.mentoring.Module_3.part_2.Visitiors.AircraftVisitorImpl;
+import com.epam.mentoring.Module_3.part_2.aircrafts.Aircraft;
+import com.epam.mentoring.Module_3.part_2.aircrafts.BussinesJet;
+import com.epam.mentoring.Module_3.part_2.aircrafts.CargoJet;
+import com.epam.mentoring.Module_3.part_2.aircrafts.PassengerJet;
+import com.epam.mentoring.Module_3.part_2.formatter.ConsolePrinter;
+import com.epam.mentoring.Module_3.part_2.visitiors.AircraftVisitorImpl;
 import com.epam.mentoring.Module_3.part_3.WrongVariantException;
 
 import java.util.Collections;
@@ -67,7 +67,7 @@ public class DataProcessor {
         weight = input.nextInt();
         System.out.println("Enter distance, km: ");
         distance = input.nextInt();
-        Cargo_jet cargo_jet = new Cargo_jet(typeOfAircraft, model, carrying_capacity, weight, distance);
+        CargoJet cargo_jet = new CargoJet(typeOfAircraft, model, carrying_capacity, weight, distance);
         aircompany.addAircraftToFleet(cargo_jet);
     }
 
@@ -80,7 +80,7 @@ public class DataProcessor {
         weight = input.nextInt();
         System.out.println("Enter distanse, km: ");
         distance = input.nextInt();
-        Passenger_jet passenger_jet = new Passenger_jet(typeOfAircraft, model, passenger_capacity, weight, distance);
+        PassengerJet passenger_jet = new PassengerJet(typeOfAircraft, model, passenger_capacity, weight, distance);
         aircompany.addAircraftToFleet(passenger_jet);
     }
 
@@ -93,7 +93,7 @@ public class DataProcessor {
         weight = input.nextInt();
         System.out.println("Enter distanse, km: ");
         distance = input.nextInt();
-        Bussines_jet bussines_jet = new Bussines_jet(typeOfAircraft, model, passenger_capacity, weight, distance);
+        BussinesJet bussines_jet = new BussinesJet(typeOfAircraft, model, passenger_capacity, weight, distance);
         aircompany.addAircraftToFleet(bussines_jet);
     }
 
@@ -171,7 +171,7 @@ public class DataProcessor {
     }
 
     private void searchCargoAircraft(Aircompany aircompany, int carrying_capacity, int distance) {
-        for (Cargo_jet cargo_jet : aircompany.getCargo_jets()) {
+        for (CargoJet cargo_jet : aircompany.getCargo_jets()) {
             if (cargo_jet.getCarrying_capacity() == carrying_capacity && cargo_jet.getDistance() == distance) {
                 System.out.println("Search results for carrying capacity = " + carrying_capacity + "kg and distance = " + distance + "km : ");
                 System.out.println("-------------------------------------------------------------------------------");
@@ -185,7 +185,7 @@ public class DataProcessor {
     }
 
     private void searchPassengerAircraft(Aircompany aircompany, int passenger_capacity, int distance) {
-        for (Passenger_jet passenger_jet : aircompany.getPassenger_jets()) {
+        for (PassengerJet passenger_jet : aircompany.getPassenger_jets()) {
             if (passenger_jet.getPassenger_capacity() == passenger_capacity && passenger_jet.getDistance() == distance) {
                 System.out.println("Search results for passenger capacity = " + passenger_capacity + "persons and distance = " + distance + "km : ");
                 System.out.println("-------------------------------------------------------------------------------");
@@ -199,7 +199,7 @@ public class DataProcessor {
     }
 
     private void searchBussinesAircraft(Aircompany aircompany, int passenger_capacity, int distance) {
-        for (Bussines_jet bussines_jet : aircompany.getBussines_jets()) {
+        for (BussinesJet bussines_jet : aircompany.getBussines_jets()) {
             if (bussines_jet.getPassenger_capacity() == passenger_capacity && bussines_jet.getDistance() == distance) {
                 System.out.println("Search results for passenger capacity = " + passenger_capacity + "persons and distance = " + distance + "km : ");
                 System.out.println("-------------------------------------------------------------------------------");

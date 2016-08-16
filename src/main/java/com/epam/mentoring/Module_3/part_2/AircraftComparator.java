@@ -1,6 +1,6 @@
 package com.epam.mentoring.Module_3.part_2;
 
-import com.epam.mentoring.Module_3.part_2.Aircrafts.Aircraft;
+import com.epam.mentoring.Module_3.part_2.aircrafts.Aircraft;
 
 import java.util.Comparator;
 

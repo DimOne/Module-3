@@ -1,10 +1,10 @@
-package com.epam.mentoring.Module_3.part_2.Visitiors;
+package com.epam.mentoring.Module_3.part_2.visitiors;
 
-import com.epam.mentoring.Module_3.part_2.Aircrafts.Bussines_jet;
-import com.epam.mentoring.Module_3.part_2.Aircrafts.Cargo_jet;
-import com.epam.mentoring.Module_3.part_2.Aircrafts.Passenger_jet;
+import com.epam.mentoring.Module_3.part_2.aircrafts.BussinesJet;
+import com.epam.mentoring.Module_3.part_2.aircrafts.CargoJet;
+import com.epam.mentoring.Module_3.part_2.aircrafts.PassengerJet;
 
-public class AircraftVisitorImpl implements AircraftVisitor {
+public class AircraftVisitorImpl implements AircraftProcessor {
 
     private long carrying_capacity;
     private int passenger_capacity;
@@ -18,17 +18,17 @@ public class AircraftVisitorImpl implements AircraftVisitor {
     }
 
     @Override
-    public void visit(Cargo_jet cargo_jet) {
+    public void visit(CargoJet cargo_jet) {
         carrying_capacity += cargo_jet.getCarrying_capacity();
     }
 
     @Override
-    public void visit(Passenger_jet passenger_jet) {
+    public void visit(PassengerJet passenger_jet) {
         passenger_capacity += passenger_jet.getPassenger_capacity();
     }
 
     @Override
-    public void visit(Bussines_jet bussines_jet) {
+    public void visit(BussinesJet bussines_jet) {
         passenger_capacity += bussines_jet.getPassenger_capacity();
     }
 }

@@ -1,41 +1,41 @@
 package com.epam.mentoring.Module_3.part_2;
 
-import com.epam.mentoring.Module_3.part_2.Aircrafts.Aircraft;
-import com.epam.mentoring.Module_3.part_2.Aircrafts.Bussines_jet;
-import com.epam.mentoring.Module_3.part_2.Aircrafts.Cargo_jet;
-import com.epam.mentoring.Module_3.part_2.Aircrafts.Passenger_jet;
+import com.epam.mentoring.Module_3.part_2.aircrafts.Aircraft;
+import com.epam.mentoring.Module_3.part_2.aircrafts.BussinesJet;
+import com.epam.mentoring.Module_3.part_2.aircrafts.CargoJet;
+import com.epam.mentoring.Module_3.part_2.aircrafts.PassengerJet;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Aircompany {
 
-    private List<Cargo_jet> cargo_jets = new ArrayList<>();
-    private List<Passenger_jet> passenger_jets = new ArrayList<>();
-    private List<Bussines_jet> bussines_jets = new ArrayList<>();
+    private List<CargoJet> cargo_jets = new ArrayList<>();
+    private List<PassengerJet> passenger_jets = new ArrayList<>();
+    private List<BussinesJet> bussines_jets = new ArrayList<>();
     private List<Aircraft> aircrafts = new ArrayList<>();
 
-    public void addAircraftToFleet(Cargo_jet cargo_jet) {
+    public void addAircraftToFleet(CargoJet cargo_jet) {
         cargo_jets.add(cargo_jet);
     }
 
-    public void addAircraftToFleet(Passenger_jet passenger_jet) {
+    public void addAircraftToFleet(PassengerJet passenger_jet) {
         passenger_jets.add(passenger_jet);
     }
 
-    public void addAircraftToFleet(Bussines_jet bussines_jet) {
+    public void addAircraftToFleet(BussinesJet bussines_jet) {
         bussines_jets.add(bussines_jet);
     }
 
-    public List<Cargo_jet> getCargo_jets() {
+    public List<CargoJet> getCargo_jets() {
         return cargo_jets;
     }
 
-    public List<Passenger_jet> getPassenger_jets() {
+    public List<PassengerJet> getPassenger_jets() {
         return passenger_jets;
     }
 
-    public List<Bussines_jet> getBussines_jets() {
+    public List<BussinesJet> getBussines_jets() {
         return bussines_jets;
     }
 
